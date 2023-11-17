@@ -1,0 +1,119 @@
+{
+  "childs": [
+    {
+      "id": "_iL775j",
+      "name": "Nicole Fitsch 1",
+      "birthDate": "2021-07-04",
+      "kindergardenId": 1
+    },
+    {
+      "id": "_ij700m",
+      "name": "Melanie Hollunder 2",
+      "birthDate": "2020-07-04",
+      "kindergardenId": 3
+    },
+    {
+      "id": "_iL77oo",
+      "name": "Viktor Sachs 3",
+      "birthDate": "2022-06-04",
+      "kindergardenId": 4
+    },
+    {
+      "id": "_iL790m",
+      "name": "Emily Nilson 4",
+      "birthDate": "2019-01-04",
+      "kindergardenId": 2
+    },
+    {
+      "id": "_iL790m",
+      "name": "Tom Reiner 5",
+      "birthDate": "2019-01-04",
+      "kindergardenId": 2
+    },
+    {
+      "id": "_iL790m",
+      "name": "Michael Mittner 6",
+      "birthDate": "2019-01-04",
+      "kindergardenId": 2
+    },
+    {
+      "id": "_iL790m",
+      "name": "Nikolaus Polarius 7",
+      "birthDate": "2019-01-04",
+      "kindergardenId": 2
+    },
+    {
+      "name": "Paulus Fensterl 8",
+      "kindergardenId": 2,
+      "birthDate": "2023-09-28",
+      "id": "9py_fwi"
+    },
+    {
+      "name": "Heidi aus den Bergen 9",
+      "kindergardenId": 2,
+      "birthDate": "2023-10-05",
+      "id": "hOHEFCv"
+    },
+    {
+      "name": "Traude Widmann 10",
+      "kindergardenId": 2,
+      "birthDate": "2023-10-05",
+      "id": "cu0_2Ad"
+    },
+    {
+      "name": "Heiner Kühlschrank 11",
+      "kindergardenId": 2,
+      "birthDate": "2023-10-26",
+      "id": "ip57WMS"
+    },
+    {
+      "name": "Nicole Witz 12",
+      "kindergardenId": 3,
+      "birthDate": "2023-10-13",
+      "id": "JmbNaBH"
+    },
+    {
+      "name": "Bastian Witsch 13",
+      "kindergardenId": 3,
+      "birthDate": "2023-10-13",
+      "id": "hlQAqAD"
+    }
+  ],
+  "kindergardens": [
+    {
+      "id": 1,
+      "name": "Waldorfkindergarden im Zentrum Wiens",
+      "address": "Oleandergasse 21, 1220 Wien",
+      "betreiber": "MA 10 - Wiener Kindergärten",
+      "typ": 1
+    },
+    {
+      "id": 2,
+      "name": "Kindergarden der Karl Schubert Schule für seelenpflegebedürftige Kinder und Jugendliche in Wien",
+      "address": "Kanitzgasse 1-3, 1230 Wien",
+      "betreiber": "Verein Karl Schubertschule für Seelenpflege- bedürftige Kinder und Jugendliche in Wien",
+      "typ": 1
+    },
+    {
+      "id": 3,
+      "name": "Kindergarden der Stadt Wien",
+      "address": "Audorfgasse 20, 1210 Wien",
+      "betreiber": "MA 10 - Wiener Kindergärten",
+      "typ": 2
+    },
+    {
+      "id": 4,
+      "name": "Kindergarden der Stadt Wien",
+      "address": "Moßbachergasse 20-24, 1140 Wien",
+      "betreiber": "MA 10 - Wiener Kindergärten",
+      "typ": 2
+    },
+    {
+      "id": 5,
+      "name": "Montessori Kinderhaus Wien 1",
+      "address": "Nußdorferstraße 6, 1090 Wien",
+      "betreiber": "Montessori Kinderhaus Wien",
+      "typ": 1
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Kindergarden</th>
+        <th>Adresse</th>
+        <th>Alter</th>
+        <th>Geburtsdatum</th>
+        <th></th>
+      </tr>
+    <tr *ngFor="let child of storeService.children">
+        <td>{{child.name}}</td>
+        <td>{{child.kindergarden.name}}</td>
+        <td>{{child.kindergarden.address}}</td>
+        <td>{{getAge(child.birthDate)}}</td>
+        <td>{{child.birthDate | date:'longDate'}}</td>
+        <button (click)="cancelRegistration(child.id)">Kind abmelden</button>
+    </tr>
+</table>
+
+<button [ngClass]="page == currentPage ? 'active' : ''" (click)="selectPage(page)" type="button" *ngFor="let page of returnAllPages() | pagination ">{{page}}</button>
