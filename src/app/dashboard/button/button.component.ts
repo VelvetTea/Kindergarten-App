@@ -6,14 +6,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-  @Input() isFormOpen!: boolean;
-  @Output() toggleFormEvent = new EventEmitter<boolean>();
+  @Input() showAddData!: boolean | undefined;
+  @Output() toggleButtonClickedEvent = new EventEmitter();
 
-  get buttonText(): string {
-    return this.isFormOpen ? 'Formular schließen' : 'Formular öffnen';
+  toggleButtonClicked() {
+    this.toggleButtonClickedEvent.emit(!this.showAddData);
   }
-
-  toggleForm() {
-    this.toggleFormEvent.emit(!this.isFormOpen);
-  }
 }

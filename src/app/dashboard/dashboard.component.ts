@@ -7,15 +7,14 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   public currentPage: number = 1;
+  public showAddData = true;
 
   receiveMessage(newPageCount: number) {
     this.currentPage = newPageCount;
   }
 
-  isFormOpen = false;
-
-  toggleForm(isOpen: boolean) {
-    this.isFormOpen = isOpen;
-  }
+  toggleButtonClicked(showAddData: boolean) {
+    this.showAddData=showAddData;
+}
 
 }
