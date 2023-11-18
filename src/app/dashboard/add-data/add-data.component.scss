@@ -1,14 +1,13 @@
-div {
-
-}
 
 .flexbox{
   display: flex;
   flex-direction: column;
-  text-align: center;
-}
-.input {
-  box-sizing: content-box;
+  justify-content: center;
+  align-items: center;
 }
 
+.item {
+  width: 35%;
+  margin: 7px;
+}
 
