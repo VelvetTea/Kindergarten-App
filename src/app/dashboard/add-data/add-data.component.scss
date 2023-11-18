@@ -1,13 +1,20 @@
 
-.flexbox{
+form{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.item {
-  width: 35%;
-  margin: 7px;
+.title {
+  align-self: center;
 }
 
+.formfield, .button {
+  margin-bottom: 10px;
+  align-items: center;
+  border: none;
+  text-align: center;
+  align-self: center;
+}

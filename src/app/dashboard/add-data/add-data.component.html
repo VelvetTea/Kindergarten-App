@@ -1,23 +1,21 @@
-<div class="flexbox">
-    <form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
-       <div class="item">
-           <h2>Ihr Kind anmelden!</h2>
-        </div>
-        <div class="item">
-            <input placeholder="Name" type="input" formControlName="name"><br />
-        </div>
-        <div class="item">
-            <input placeholder="Geburtsdatum" type="date" formControlName="birthDate"><br />
-        </div>
-        <div class="item">
-            <select formControlName="kindergardenId">
-                <option value="" disabled>Bitte auswählen</option>
-                <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
-                    {{kindergarden.name}}, {{kindergarden.address}}</option>
-            </select>
-        </div>
-        <div class="item">
-            <button type="submit">Erfassen</button>
-        </div>
-    </form>
-</div>
+<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
+   <div class="title">
+       <h2>Ihr Kind anmelden!</h2>
+    </div>
+    <div class="formfield">
+        <input placeholder="Name" type="input" formControlName="name"><br />
+    </div>
+    <div class="formfield">
+        <input placeholder="Geburtsdatum" type="date" formControlName="birthDate"><br />
+    </div>
+    <div class="formfield">
+        <select formControlName="kindergardenId">
+            <option value="" disabled>Bitte auswählen</option>
+            <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
+                {{kindergarden.name}}, {{kindergarden.address}}</option>
+        </select>
+    </div>
+    <div class="button">
+        <button type="submit">Erfassen</button>
+    </div>
+</form>
