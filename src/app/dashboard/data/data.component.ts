@@ -34,7 +34,6 @@ export class DataComponent implements OnInit {
   }
 
   selectPage(event: PageEvent) {
-
     let currentPage = event.pageIndex + 1;
     this.selectPageEvent.emit(currentPage)
     this.backendService.getChildren(currentPage);

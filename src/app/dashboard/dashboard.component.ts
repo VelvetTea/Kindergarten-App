@@ -16,5 +16,4 @@ export class DashboardComponent {
   toggleButtonClicked(showAddData: boolean) {
     this.showAddData=showAddData;
 }
-
 }

@@ -5,7 +5,17 @@
     <mat-form-field class="container-flex-element">
         <input matInput placeholder="Name" type="input" formControlName="name">
         <mat-error *ngIf="addChildForm.controls['name'].touched && addChildForm.controls['name'].invalid">
-            Bitte Geben Sie ihren vollständigen Namen ein!
+            Bitte geben Sie den vollständigen Namen ein!
+        </mat-error>
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field class="container-flex-element">
+        <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum" formControlName="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="addChildForm.controls['birthDate'].touched && addChildForm.controls['birthDate'].invalid">
+            Geburtsdatum ist erforderlich!
         </mat-error>
     </mat-form-field>
 
@@ -18,7 +28,7 @@
             </mat-option>
         </mat-select>
         <mat-error *ngIf="addChildForm.controls['kindergardenId'].touched && !addChildForm.controls['kindergardenId'].valid">
-            Bitte wählen Sie einen Kindergarten aus.
+            Bitte wählen Sie einen Kindergarten aus!
         </mat-error>
     </mat-form-field>
     <br/>
