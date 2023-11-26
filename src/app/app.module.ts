@@ -11,6 +11,14 @@ import { HeaderComponent } from './header/header.component';
 import { ButtonComponent } from './dashboard/button/button.component';
 import { PaginationPipe } from './dashboard/data/pagination.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select'
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatInputModule} from '@angular/material/input';
+import { MatDialogModule} from "@angular/material/dialog";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -22,14 +30,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonComponent,
     PaginationPipe
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatOptionModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

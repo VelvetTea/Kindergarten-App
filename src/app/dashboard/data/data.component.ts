@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BackendService } from 'src/app/shared/backend.service';
 import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
 import { StoreService } from 'src/app/shared/store.service';
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-data',
@@ -9,6 +10,8 @@ import { StoreService } from 'src/app/shared/store.service';
   styleUrls: ['./data.component.scss']
 })
 export class DataComponent implements OnInit {
+
+  displayedColumns: string[] = ['name', 'kindergarden', 'address', 'age', 'birthdate', 'action'];
 
   constructor(public storeService: StoreService, private backendService: BackendService) {}
   @Input() currentPage!: number;
@@ -30,8 +33,9 @@ export class DataComponent implements OnInit {
     return age;
   }
 
-  selectPage(i: any) {
-    let currentPage = i;
+  selectPage(event: PageEvent) {
+
+    let currentPage = event.pageIndex + 1;
     this.selectPageEvent.emit(currentPage)
     this.backendService.getChildren(currentPage);
   }
@@ -43,6 +47,8 @@ export class DataComponent implements OnInit {
   public cancelRegistration(childId: string) {
     this.backendService.deleteChildData(childId, this.currentPage);
   }
+
+  protected readonly CHILDREN_PER_PAGE = CHILDREN_PER_PAGE;
 }
 
 
