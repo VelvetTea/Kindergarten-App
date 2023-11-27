@@ -1,3 +1,7 @@
+<div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    Kind erfolgreich angelegt!
+    <button type="button" class="btn-close" (click)="hideSuccessAlert()" aria-label="Close">x</button>
+</div>
 <mat-form class="container-flex" [formGroup]="addChildForm" (ngSubmit)="onSubmit()" #kinderForm="ngForm">
 
     <h2>Ihr Kind anmelden!</h2>
@@ -34,9 +38,3 @@
     <br/>
     <button class="container-flex-element" mat-raised-button color="warn" type="submit" (click)="onSubmit()">Anmelden</button>
 </mat-form>
-
-
-<div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
-    Kind erfolgreich angelegt!
-    <button type="button" class="btn-close" (click)="hideSuccessAlert()" aria-label="Close"></button>
-</div>

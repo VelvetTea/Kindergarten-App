@@ -29,6 +29,7 @@ export class AddDataComponent implements OnInit{
     if (this.addChildForm.valid) {
       this.backendService.addChildData(this.addChildForm.value, this.currentPage);
       this.showSuccessAlert = true;
+      this.addChildForm.reset();
     }
   }
 
