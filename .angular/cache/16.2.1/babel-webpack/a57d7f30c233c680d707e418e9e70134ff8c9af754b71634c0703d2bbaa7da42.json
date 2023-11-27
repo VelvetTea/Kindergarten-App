@@ -1,1 +1,0 @@
-{"ast":null,"code":"export const CHILDREN_PER_PAGE = 2;","map":{"version":3,"names":["CHILDREN_PER_PAGE"],"sources":["C:\\Users\\LindaW\\Desktop\\FH\\HID\\Kindergarten\\src\\app\\shared\\constants.ts"],"sourcesContent":["export const CHILDREN_PER_PAGE = 2;"],"mappings":"AAAA,OAAO,MAAMA,iBAAiB,GAAG,CAAC"},"metadata":{},"sourceType":"module","externalDependencies":[]}
