@@ -14,6 +14,7 @@ export class AddDataComponent implements OnInit{
   constructor(private formbuilder: FormBuilder, public storeService: StoreService, public backendService: BackendService) {
   }
   public addChildForm: any;
+  public showSuccessAlert: boolean = false;
   @Input() currentPage!: number;
 
   ngOnInit(): void {
@@ -25,9 +26,13 @@ export class AddDataComponent implements OnInit{
   }
 
   onSubmit() {
-    if(this.addChildForm.valid) {
-      console.log(this.currentPage);
+    if (this.addChildForm.valid) {
       this.backendService.addChildData(this.addChildForm.value, this.currentPage);
+      this.showSuccessAlert = true;
     }
+  }
+
+  hideSuccessAlert() {
+    this.showSuccessAlert = false;
   }
 }

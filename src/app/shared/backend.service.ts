@@ -24,17 +24,17 @@ export class BackendService {
       this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
 
     });
-    }
-
-    public addChildData(child: Child, page:  number) {
-      this.http.post('http://localhost:5000/childs', child).subscribe(_ => {
-        this.getChildren(page);
-      })
-    }
-
-    public deleteChildData(childId: string, page: number) {
-      this.http.delete(`http://localhost:5000/childs/${childId}`).subscribe(_=> {
-        this.getChildren(page);
-      })
-    }
   }
+
+  public addChildData(child: Child, page:  number) {
+    this.http.post('http://localhost:5000/childs', child).subscribe(_ => {
+      this.getChildren(page);
+    })
+  }
+
+  public deleteChildData(childId: string, page: number) {
+    this.http.delete(`http://localhost:5000/childs/${childId}`).subscribe(_=> {
+      this.getChildren(page);
+    })
+  }
+}

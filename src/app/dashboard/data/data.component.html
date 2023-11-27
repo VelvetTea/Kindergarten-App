@@ -35,7 +35,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-paginator [length]="returnAllPages()"
+<mat-paginator [length]="returnAllPages() * CHILDREN_PER_PAGE"
                [pageSize]="CHILDREN_PER_PAGE"
                (page)="selectPage($event)">
 </mat-paginator>

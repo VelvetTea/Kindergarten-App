@@ -32,5 +32,11 @@
         </mat-error>
     </mat-form-field>
     <br/>
-    <button class="container-flex-element" mat-raised-button color="warn" type="submit">Anmelden</button>
+    <button class="container-flex-element" mat-raised-button color="warn" type="submit" (click)="onSubmit()">Anmelden</button>
 </mat-form>
+
+
+<div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    Kind erfolgreich angelegt!
+    <button type="button" class="btn-close" (click)="hideSuccessAlert()" aria-label="Close"></button>
+</div>
