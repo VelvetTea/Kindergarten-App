@@ -4,7 +4,7 @@ Angabe Programmierübung 1
 
 Branches: Angular-Material-Programmierübung-1-Linda
 
-Verwendet die Angular Material Component Library, um unsere Sensoren-App zu verschönern
+Verwendet die Angular Material Component Library, um unsere Kindergarten-App zu verschönern
 
   • Welche Möglichkeiten bietet die Library für unser Formular? Versucht, unsere Form
     Fields mit Komponenten der Library zu ersetzen und Form-Validation (max, min,

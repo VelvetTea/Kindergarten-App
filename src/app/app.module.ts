@@ -19,6 +19,7 @@ import { MatInputModule} from '@angular/material/input';
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
         MatPaginatorModule,
         MatNativeDateModule,
         MatDatepickerModule,
+        MatToolbarModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
