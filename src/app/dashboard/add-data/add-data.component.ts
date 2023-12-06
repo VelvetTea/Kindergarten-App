@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BackendService } from 'src/app/shared/backend.service';
 import { StoreService } from 'src/app/shared/store.service';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-add-data',
@@ -11,10 +12,13 @@ import { StoreService } from 'src/app/shared/store.service';
 
 export class AddDataComponent implements OnInit{
 
-  constructor(private formbuilder: FormBuilder, public storeService: StoreService, public backendService: BackendService) {
+  constructor(private formbuilder: FormBuilder,
+              public storeService: StoreService,
+              public backendService: BackendService,
+              private snackBar: MatSnackBar) {
   }
   public addChildForm: any;
-  public showSuccessAlert: boolean = false;
+  public toastTrigger = false;
   @Input() currentPage!: number;
 
   ngOnInit(): void {
@@ -25,15 +29,14 @@ export class AddDataComponent implements OnInit{
     })
   }
 
+
   onSubmit() {
     if (this.addChildForm.valid) {
       this.backendService.addChildData(this.addChildForm.value, this.currentPage);
-      this.showSuccessAlert = true;
+      this.snackBar.open('Kind erfolgreich angemeldet! 🎉', '', {
+        duration: 5000
+      })
       this.addChildForm.reset();
     }
-  }
-
-  hideSuccessAlert() {
-    this.showSuccessAlert = false;
   }
 }

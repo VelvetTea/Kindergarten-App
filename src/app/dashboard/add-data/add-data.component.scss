@@ -11,23 +11,3 @@
   align-self: center;
   width: 20%;
 }
-
-.alert-success{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-}
-
-.alert-success .btn-close {
-  opacity: 0.75;
-  padding: 0.5rem 0.75rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.alert-success .btn-close:hover {
-  opacity: 1;
-}

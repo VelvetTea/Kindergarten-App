@@ -20,6 +20,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
         MatNativeDateModule,
         MatDatepickerModule,
         MatToolbarModule,
+        MatSnackBarModule
     ],
   providers: [],
   bootstrap: [AppComponent]
