@@ -1,21 +1,47 @@
-<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
-   <div class="title">
-       <h2>Ihr Kind anmelden!</h2>
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body text-center text-bg-success" >
+                Kind erfolgreich angemeldet!
+            </div>
+        </div>
     </div>
-    <div class="formfield">
-        <input placeholder="Name" type="input" formControlName="name"><br />
-    </div>
-    <div class="formfield">
-        <input placeholder="Geburtsdatum" type="date" formControlName="birthDate"><br />
-    </div>
-    <div class="formfield">
-        <select formControlName="kindergardenId">
-            <option value="" disabled>Bitte auswählen</option>
-            <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
-                {{kindergarden.name}}, {{kindergarden.address}}</option>
-        </select>
-    </div>
-    <div class="button">
-        <button type="submit">Erfassen</button>
-    </div>
-</form>
+</div>
+
+
+<mat-form class="container-flex" [formGroup]="addChildForm" (ngSubmit)="onSubmit()" #kinderForm="ngForm">
+
+    <h2>Ihr Kind anmelden!</h2>
+
+    <mat-form-field class="container-flex-element">
+        <input matInput placeholder="Name" type="input" formControlName="name">
+        <mat-error *ngIf="addChildForm.controls['name'].touched && addChildForm.controls['name'].invalid">
+            Bitte geben Sie den vollständigen Namen ein!
+        </mat-error>
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field class="container-flex-element">
+        <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum" formControlName="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="addChildForm.controls['birthDate'].touched && addChildForm.controls['birthDate'].invalid">
+            Geburtsdatum ist erforderlich!
+        </mat-error>
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field class="container-flex-element">
+        <mat-label>Kindergarten</mat-label>
+        <mat-select placeholder="Kindergarten" formControlName="kindergardenId">
+            <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+                {{ kindergarden.name }}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="addChildForm.controls['kindergardenId'].touched && !addChildForm.controls['kindergardenId'].valid">
+            Bitte wählen Sie einen Kindergarten aus!
+        </mat-error>
+    </mat-form-field>
+    <br/>
+    <button class="container-flex-element" mat-raised-button color="warn" type="submit" (click)="onSubmit()">Anmelden</button>
+</mat-form>

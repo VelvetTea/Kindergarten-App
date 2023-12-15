@@ -1,18 +1,13 @@
 
-form {
+.container-flex {
   display: flex;
   align-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.formfield, .button{
+.container-flex-element {
   align-self: center;
-  width: 35%;
-}
-
-.title {
-  font-family: "Phenomena-ExtraBold", "SansSerif";
-  font-size:30px;
-  margin-bottom: 20px;
-  align-self: center;
+  width: 20%;
 }

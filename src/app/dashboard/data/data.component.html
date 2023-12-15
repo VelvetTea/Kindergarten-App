@@ -1,19 +1,41 @@
-<div class="container" >
-    <div class="row">
-        <div class="col-2">Name</div>
-        <div class="col-2">Kindergarten</div>
-        <div class="col-2">Adresse</div>
-        <div class="col-2">Alter</div>
-        <div class="col-2">Geburtsdatum</div>
-    </div>
-    <div class="row" *ngFor="let child of storeService.children">
-        <div class="col">{{child.name}}</div>
-        <div class="col">{{child.kindergarden.name}}</div>
-        <div class="col">{{child.kindergarden.address}}</div>
-        <div class="col">{{getAge(child.birthDate)}}</div>
-        <div class="col">{{child.birthDate | date:'longDate'}}</div>
-        <div class="col"><button (click)="cancelRegistration(child.id)">Kind abmelden</button></div>
-    </div>
-</div>
+<table mat-table [dataSource]="storeService.children">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let child">{{ child.name }}</td>
+    </ng-container>
 
-<button [ngClass]="page == currentPage ? 'active' : ''" (click)="selectPage(page)" type="button" *ngFor="let page of returnAllPages() | pagination ">{{page}}</button>
+    <ng-container matColumnDef="kindergarden">
+        <th mat-header-cell *matHeaderCellDef>Kindergarten</th>
+        <td mat-cell *matCellDef="let child">{{ child.kindergarden.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Adresse</th>
+        <td mat-cell *matCellDef="let child">{{ child.kindergarden.address }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef>Alter</th>
+        <td mat-cell *matCellDef="let child">{{ getAge(child.birthDate) }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="birthdate">
+        <th mat-header-cell *matHeaderCellDef>Geburtsdatum</th>
+        <td mat-cell *matCellDef="let child">{{ child.birthDate | date:'longDate' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let child">
+            <button mat-button color="warn" (click)="cancelRegistration(child.id)">abmelden</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [length]="returnAllPages() * CHILDREN_PER_PAGE"
+               [pageSize]="CHILDREN_PER_PAGE"
+               (page)="selectPage($event)">
+</mat-paginator>
