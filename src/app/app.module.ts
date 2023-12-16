@@ -20,6 +20,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     DataComponent,
     HeaderComponent,
     ButtonComponent,
-    PaginationPipe
+    PaginationPipe,
+    LoadingSpinnerComponent
   ],
     imports: [
         BrowserModule,
@@ -48,6 +51,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
         MatNativeDateModule,
         MatDatepickerModule,
         MatToolbarModule,
+        MatProgressSpinnerModule
     ],
   providers: [],
   bootstrap: [AppComponent]
