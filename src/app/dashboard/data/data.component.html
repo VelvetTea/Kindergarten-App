@@ -1,41 +1,35 @@
-<table mat-table [dataSource]="storeService.children">
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let child">{{ child.name }}</td>
-    </ng-container>
+<div>
+    <mat-table [dataSource]="storeService.children" matSort>
 
-    <ng-container matColumnDef="kindergarden">
-        <th mat-header-cell *matHeaderCellDef>Kindergarten</th>
-        <td mat-cell *matCellDef="let child">{{ child.kindergarden.name }}</td>
-    </ng-container>
+        <ng-container *ngFor="let column of columns" [matColumnDef]="column.field">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>
+            <mat-cell *matCellDef="let child">
+                <ng-container *ngIf="column.field === 'delete'">
+                    <button mat-button (click)="cancelRegistration(child.id)">abmelden</button>
+                </ng-container>
+                <ng-container *ngIf="column.field == 'age'">
+                    {{ getAge(child.birthDate) }}
+                </ng-container>
+                <ng-container *ngIf="column.field == 'kindergarden'">
+                    {{ child.kindergarden.name }}
+                </ng-container>
+                <ng-container *ngIf="column.field == 'address'">
+                    {{ child.kindergarden.address }}
+                </ng-container>
+                <ng-container
+                        *ngIf="column.field !== 'delete' && column.field !== 'age' && column.field !== 'kindergarden' && column.field !== 'address'">
+                    {{ child[column.field] }}
+                </ng-container>
+            </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef>Adresse</th>
-        <td mat-cell *matCellDef="let child">{{ child.kindergarden.address }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="age">
-        <th mat-header-cell *matHeaderCellDef>Alter</th>
-        <td mat-cell *matCellDef="let child">{{ getAge(child.birthDate) }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="birthdate">
-        <th mat-header-cell *matHeaderCellDef>Geburtsdatum</th>
-        <td mat-cell *matCellDef="let child">{{ child.birthDate | date:'longDate' }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let child">
-            <button mat-button color="warn" (click)="cancelRegistration(child.id)">abmelden</button>
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="returnAllPages() * CHILDREN_PER_PAGE"
-               [pageSize]="CHILDREN_PER_PAGE"
-               (page)="selectPage($event)">
-</mat-paginator>
+        <mat-header-row *matHeaderRowDef="columnFields"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnFields"></mat-row>
+    </mat-table>
+</div>
+<div class="paginator">
+    <mat-paginator [length]="returnAllPages() * CHILDREN_PER_PAGE"
+                   [pageSize]="CHILDREN_PER_PAGE"
+                   (page)="selectPage($event)">
+    </mat-paginator>
+</div>

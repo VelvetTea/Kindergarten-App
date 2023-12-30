@@ -1,7 +1,48 @@
-button.active {
-    background-color: orange;
+div{
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-th{
+mat-cell{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-header-cell{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-header-row{
+    background-color: lightcoral;
+    text-align: center;
+}
+
+mat-row{
+    background-color: rgb(255, 213, 193);
+    text-align: center;
+}
+
+mat-row:hover{
+    background-color: #ffd9cc;
+}
+
+button{
     background-color: coral;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 12px;
+}
+
+button:hover{
+    background-color: rgb(255, 198, 173);
+    color: black;
+}
+
+mat-paginator{
+    color: #f35454;
 }

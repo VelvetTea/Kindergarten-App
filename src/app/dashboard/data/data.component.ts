@@ -22,6 +22,19 @@ export class DataComponent implements OnInit {
     this.backendService.getChildren(this.currentPage);
   }
 
+  get columnFields() {
+    return this.columns.map(column => column.field);
+  }
+
+  columns = [
+    { field: 'name', header: 'Name' },
+    { field: 'kindergarden', header: 'Kindergarten' },
+    { field: 'address', header: 'Addresse' },
+    { field: 'age', header: 'Alter' },
+    { field: 'birthDate', header: 'Geburtstag' },
+    { field: 'delete', header: '' },
+  ];
+
   getAge(birthDate: string) {
     var today = new Date();
     var birthDateTimestamp = new Date(birthDate);
