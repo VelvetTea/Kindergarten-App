@@ -23,6 +23,11 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {AboutPageComponent} from "./about-page/about-page.component";
+import { WaldorfkindergartenComponent } from './about-page/waldorfkindergarten/waldorfkindergarten.component';
+import { KarlSchubertComponent } from './about-page/karl-schubert/karl-schubert.component';
+import { StadtWien1210Component } from './about-page/stadt-wien1210/stadt-wien1210.component';
+import { StadtWien1140Component } from './about-page/stadt-wien1140/stadt-wien1140.component';
+import { MontessoriComponent } from './about-page/montessori/montessori.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import {AboutPageComponent} from "./about-page/about-page.component";
     HeaderComponent,
     ButtonComponent,
     PaginationPipe,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    WaldorfkindergartenComponent,
+    KarlSchubertComponent,
+    StadtWien1210Component,
+    StadtWien1140Component,
+    MontessoriComponent
   ],
     imports: [
         BrowserModule,

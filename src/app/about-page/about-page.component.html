@@ -1,12 +1,12 @@
 <div class="grid-container">
     <ng-container *ngFor="let kindergarden of storeService.kindergardens">
-        <div class="grid-item">
+        <div class="grid-item" [routerLink]="getRouterLink(kindergarden)">
             <img [src]="getImagePath(kindergarden.name)" alt="Kindergarten Logo">
             <ng-container *ngIf="kindergarden.name !== 'Kindergarden der Stadt Wien'">
                 <p>{{ kindergarden.name }}</p>
             </ng-container>
             <ng-container *ngIf="kindergarden.name === 'Kindergarden der Stadt Wien'">
-                <p>{{kindergarden.name}}</p>
+                <p>{{ kindergarden.name }}</p>
                 <p>{{ kindergarden.address }}</p>
             </ng-container>
         </div>

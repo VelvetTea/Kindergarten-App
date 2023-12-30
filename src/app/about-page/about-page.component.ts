@@ -24,4 +24,17 @@ export class AboutPageComponent {
   public getImagePath(kindergarden: string): string {
     return `./../assets/images/${kindergarden}.png`;
   }
+
+  public getRouterLink(kindergarden: any): string {
+    if(kindergarden.name == "Kindergarden der Stadt Wien"){
+      if(kindergarden.address == "Audorfgasse 20, 1210 Wien"){
+        return "/about/Kindergarden der Stadt Wien - 1210"
+      } else {
+        return "/about/Kindergarden der Stadt Wien - 1140"
+      }
+    } else {
+      return `/about/${kindergarden.name}`
+    }
+  }
 }
+
