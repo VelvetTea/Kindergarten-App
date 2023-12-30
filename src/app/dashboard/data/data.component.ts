@@ -3,6 +3,7 @@ import { BackendService } from 'src/app/shared/backend.service';
 import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
 import { StoreService } from 'src/app/shared/store.service';
 import {PageEvent} from "@angular/material/paginator";
+import * as bootstrap from "bootstrap";
 
 @Component({
   selector: 'app-data',
@@ -29,7 +30,7 @@ export class DataComponent implements OnInit {
   columns = [
     { field: 'name', header: 'Name' },
     { field: 'kindergarden', header: 'Kindergarten' },
-    { field: 'address', header: 'Addresse' },
+    { field: 'address', header: 'Adresse' },
     { field: 'age', header: 'Alter' },
     { field: 'birthDate', header: 'Geburtstag' },
     { field: 'delete', header: '' },
@@ -46,6 +47,15 @@ export class DataComponent implements OnInit {
     return age;
   }
 
+  showToast() {
+    const toastElement = document.getElementById('deleteToast');
+    if (toastElement)
+    {
+      const toast = new bootstrap.Toast(toastElement);
+      toast.show();
+    }
+  }
+
   selectPage(event: PageEvent) {
     let currentPage = event.pageIndex + 1;
     this.selectPageEvent.emit(currentPage)
@@ -57,7 +67,12 @@ export class DataComponent implements OnInit {
   }
 
   public cancelRegistration(childId: string) {
-    this.backendService.deleteChildData(childId, this.currentPage);
+    this.storeService.isLoading = true;
+    setTimeout(() => {
+      this.backendService.deleteChildData(childId, this.currentPage);
+      this.storeService.isLoading = false;
+      this.showToast();
+    }, 1000);
   }
 
   protected readonly CHILDREN_PER_PAGE = CHILDREN_PER_PAGE;

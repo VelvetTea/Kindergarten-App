@@ -1,3 +1,4 @@
+<app-loading-spinner *ngIf="storeService.isLoading"></app-loading-spinner>
 <app-data [currentPage]="currentPage" (selectPageEvent)="receiveMessage($event)" ></app-data>
 <br>
 <app-button [showAddData]="showAddData" (toggleButtonClickedEvent)="toggleButtonClicked($event)"></app-button>
