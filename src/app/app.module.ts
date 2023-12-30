@@ -22,11 +22,13 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {AboutPageComponent} from "./about-page/about-page.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    AboutPageComponent,
     AddDataComponent,
     DataComponent,
     HeaderComponent,
