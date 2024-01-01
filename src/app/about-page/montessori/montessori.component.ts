@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {StoreService} from "../../shared/store.service";
 
 @Component({
   selector: 'app-montessori',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class MontessoriComponent {
 
+  constructor(public storeService: StoreService) {
+  }
+
+  ngOnInit(){
+    this.storeService.isLoading = false;
+  }
 }
