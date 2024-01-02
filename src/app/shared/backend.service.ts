@@ -4,6 +4,7 @@ import { Kindergarden } from './interfaces/Kindergarden';
 import { StoreService } from './store.service';
 import { Child, ChildResponse } from './interfaces/Child';
 import { CHILDREN_PER_PAGE } from './constants';
+import {DataComponent} from "../dashboard/data/data.component";
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,12 @@ export class BackendService {
     });
   }
 
-  public getChildren(page: number) {
-    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}`, { observe: 'response' }).subscribe(data => {
-      this.storeService.children = data.body!;
-      this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
-      this.storeService.isLoading = false;
+  public getChildren(page: number, sortBy?: string, direction?: string) {
+    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_sort=${sortBy}&_order=${direction}&_page=${page}&_limit=${CHILDREN_PER_PAGE}`, { observe: 'response' }).subscribe(data => {
+        this.storeService.children = data.body!;
+        this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
+        //this.storeService.childrenForFilter = this.storeService.children;
+        this.storeService.isLoading = false;
     });
   }
 
