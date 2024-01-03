@@ -4,79 +4,106 @@
       "id": "_iL775j",
       "name": "Nicole Fitsch 1",
       "birthDate": "2021-07-04",
-      "kindergardenId": 1
-    },
-    {
-      "id": "_ij700m",
-      "name": "Melanie Hollunder 2",
-      "birthDate": "2020-07-04",
-      "kindergardenId": 3
+      "kindergardenId": 1,
+      "registrationDate": "2023-03-07"
     },
     {
       "id": "_iL77oo",
-      "name": "Viktor Sachs 3",
+      "name": "Viktor Sachs 2",
       "birthDate": "2022-06-04",
-      "kindergardenId": 4
+      "kindergardenId": 1,
+      "registrationDate": "2023-01-04"
     },
     {
       "id": "_iL790m",
-      "name": "Emily Nilson 4",
+      "name": "Emily Nilson 3",
       "birthDate": "2019-01-04",
-      "kindergardenId": 2
+      "kindergardenId": 1,
+      "registrationDate": "2022-02-26"
     },
     {
       "id": "_iL790m",
-      "name": "Tom Reiner 5",
+      "name": "Tom Reiner 4",
       "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "id": "_iL790m",
-      "name": "Michael Mittner 6",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "id": "_iL790m",
-      "name": "Nikolaus Polarius 7",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "name": "Paulus Fensterl 8",
       "kindergardenId": 2,
+      "registrationDate": "2023-06-05"
+    },
+    {
+      "id": "_iL790m",
+      "name": "Michael Mittner 5",
+      "birthDate": "2019-01-04",
+      "kindergardenId": 2,
+      "registrationDate": "2021-06-04"
+    },
+    {
+      "id": "_iL790m",
+      "name": "Nikolaus Polarius 6",
+      "birthDate": "2019-01-04",
+      "kindergardenId": 2,
+      "registrationDate": "2022-06-04"
+    },
+    {
+      "name": "Paulus Fensterl 7",
+      "kindergardenId": 3,
       "birthDate": "2023-09-28",
-      "id": "9py_fwi"
+      "id": "9py_fwi",
+      "registrationDate": "2022-06-04"
     },
     {
-      "name": "Heidi aus den Bergen 9",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-05",
-      "id": "hOHEFCv"
-    },
-    {
-      "name": "Traude Widmann 10",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-05",
-      "id": "cu0_2Ad"
-    },
-    {
-      "name": "Heiner Kühlschrank 11",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-26",
-      "id": "ip57WMS"
-    },
-    {
-      "name": "Nicole Witz 12",
+      "name": "Traude Widmann 8",
       "kindergardenId": 3,
-      "birthDate": "2023-10-13",
-      "id": "JmbNaBH"
+      "birthDate": "2023-10-05",
+      "id": "cu0_2Ad",
+      "registrationDate": "2022-06-04"
     },
     {
-      "name": "Bastian Witsch 13",
+      "name": "Heiner Kühlschrank 9",
       "kindergardenId": 3,
+      "birthDate": "2021-10-26",
+      "id": "ip57WMS",
+      "registrationDate": "2022-03-07"
+    },
+    {
+      "name": "Nicole Witz 10",
+      "kindergardenId": 4,
       "birthDate": "2023-10-13",
-      "id": "hlQAqAD"
+      "id": "JmbNaBH",
+      "registrationDate": "2022-06-04"
+    },
+    {
+      "name": "Emma Müller 11",
+      "kindergardenId": 4,
+      "birthDate": "2021-07-11T22:00:00.000Z",
+      "registrationDate": "2024-01-03",
+      "id": "wmvM5tx"
+    },
+    {
+      "name": "Lukas Schmidt 12",
+      "kindergardenId": 4,
+      "birthDate": "2022-06-28T22:00:00.000Z",
+      "registrationDate": "2023-12-13",
+      "id": "V9e9z2F"
+    },
+    {
+      "name": "Emily Erdbeer 13",
+      "kindergardenId": 5,
+      "birthDate": "2022-06-28T22:00:00.000Z",
+      "registrationDate": "2023-12-13",
+      "id": "V9e9z2F"
+    },
+    {
+      "name": "Lia Bauer 14",
+      "kindergardenId": 5,
+      "birthDate": "2022-06-28T22:00:00.000Z",
+      "registrationDate": "2023-12-15",
+      "id": "V9e9z2F"
+    },
+    {
+      "name": "Lily Wagner 15",
+      "kindergardenId": 5,
+      "birthDate": "2022-06-28T22:00:00.000Z",
+      "registrationDate": "2023-12-26",
+      "id": "V9e9z2F"
     }
   ],
   "kindergardens": [

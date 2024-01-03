@@ -1,7 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { BackendService } from 'src/app/shared/backend.service';
-import { StoreService } from 'src/app/shared/store.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+import {BackendService} from 'src/app/shared/backend.service';
+import {StoreService} from 'src/app/shared/store.service';
 import * as bootstrap from 'bootstrap';
 
 @Component({
@@ -24,8 +24,13 @@ export class AddDataComponent implements OnInit{
     this.addChildForm = this.formbuilder.group({
       name: ['', [Validators.required]],
       kindergardenId: ['', Validators.required],
-      birthDate: [null, Validators.required]
+      birthDate: [null, Validators.required],
+      registrationDate: ['']
     })
+  }
+
+  getDate() {
+    return new Date().toISOString().split('T')[0];
   }
 
   showToast() {
@@ -39,6 +44,9 @@ export class AddDataComponent implements OnInit{
 
   onSubmit() {
     if (this.addChildForm.valid) {
+      this.addChildForm.patchValue({
+        registartionDate: this.getDate()
+      });
       this.backendService.addChildData(this.addChildForm.value, this.currentPage);
       this.showToast();
       this.addChildForm.reset();

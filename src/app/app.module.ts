@@ -28,6 +28,8 @@ import { KarlSchubertComponent } from './about-page/karl-schubert/karl-schubert.
 import { StadtWien1210Component } from './about-page/stadt-wien1210/stadt-wien1210.component';
 import { StadtWien1140Component } from './about-page/stadt-wien1140/stadt-wien1140.component';
 import { MontessoriComponent } from './about-page/montessori/montessori.component';
+import {MatSortModule} from "@angular/material/sort";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { MontessoriComponent } from './about-page/montessori/montessori.componen
         MatNativeDateModule,
         MatDatepickerModule,
         MatToolbarModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatSortModule,
+        MatTabsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

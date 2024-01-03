@@ -7,39 +7,88 @@
         </div>
     </div>
 </div>
-
 <div>
-    <mat-table [dataSource]="storeService.children" matSort>
+    <mat-tab-group>
+        <mat-tab label="Alle">
+            <div>
+                <mat-table [dataSource]="storeService.children" matSort (matSortChange)="sortChange($event)">
 
-        <ng-container *ngFor="let column of columns" [matColumnDef]="column.field">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>
-            <mat-cell *matCellDef="let child">
-                <ng-container *ngIf="column.field === 'delete'">
-                    <button mat-button (click)="cancelRegistration(child.id)">abmelden</button>
-                </ng-container>
-                <ng-container *ngIf="column.field == 'age'">
-                    {{ getAge(child.birthDate) }}
-                </ng-container>
-                <ng-container *ngIf="column.field == 'kindergarden'">
-                    {{ child.kindergarden.name }}
-                </ng-container>
-                <ng-container *ngIf="column.field == 'address'">
-                    {{ child.kindergarden.address }}
-                </ng-container>
-                <ng-container
-                        *ngIf="column.field !== 'delete' && column.field !== 'age' && column.field !== 'kindergarden' && column.field !== 'address'">
-                    {{ child[column.field] }}
-                </ng-container>
-            </mat-cell>
-        </ng-container>
+                    <ng-container *ngFor="let column of columns" [matColumnDef]="column.field">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>
+                        <mat-cell *matCellDef="let child">
+                            <ng-container *ngIf="column.field === 'delete'">
+                                <button mat-button (click)="cancelRegistration(child.id)">X</button>
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'age'">
+                                {{ getAge(child.birthDate) }}
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'kindergarden'">
+                                {{ child.kindergarden.name }}
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'address'">
+                                {{ child.kindergarden.address }}
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'birthDate'">
+                                {{ getBirthDate(child.birthDate) }}
+                            </ng-container>
+                            <ng-container
+                                    *ngIf="column.field !== 'delete' && column.field !== 'age' && column.field !== 'kindergarden' && column.field !== 'address' && column.field !== 'birthDate'">
+                                {{ child[column.field] }}
+                            </ng-container>
+                        </mat-cell>
+                    </ng-container>
 
-        <mat-header-row *matHeaderRowDef="columnFields"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: columnFields"></mat-row>
-    </mat-table>
-</div>
-<div class="paginator">
-    <mat-paginator [length]="returnAllPages() * CHILDREN_PER_PAGE"
-                   [pageSize]="CHILDREN_PER_PAGE"
-                   (page)="selectPage($event)">
-    </mat-paginator>
+                    <mat-header-row *matHeaderRowDef="columnFields"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: columnFields"></mat-row>
+                </mat-table>
+            </div>
+            <div class="paginator">
+                <mat-paginator [length]="returnAllPages() * CHILDREN_PER_PAGE"
+                               [pageSize]="CHILDREN_PER_PAGE"
+                               (page)="selectPage($event)">
+                </mat-paginator>
+            </div>
+        </mat-tab>
+
+        <mat-tab *ngFor="let kindergarten of storeService.kindergardens" [label]="kindergarten.name" (click)="selectKindergarden(kindergarten)">
+            <div>
+                <mat-table [dataSource]="selectKindergarden(kindergarten)" matSort (matSortChange)="sortChange($event)">
+
+                    <ng-container *ngFor="let column of columns" [matColumnDef]="column.field">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>
+                        <mat-cell *matCellDef="let child">
+                            <ng-container *ngIf="column.field === 'delete'">
+                                <button mat-button (click)="cancelRegistration(child.id)">X</button>
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'age'">
+                                {{ getAge(child.birthDate) }}
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'kindergarden'">
+                                {{ child.kindergarden.name }}
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'address'">
+                                {{ child.kindergarden.address }}
+                            </ng-container>
+                            <ng-container *ngIf="column.field == 'birthDate'">
+                                {{ getBirthDate(child.birthDate) }}
+                            </ng-container>
+                            <ng-container
+                                    *ngIf="column.field !== 'delete' && column.field !== 'age' && column.field !== 'kindergarden' && column.field !== 'address' && column.field !== 'birthDate'">
+                                {{ child[column.field] }}
+                            </ng-container>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="columnFields"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: columnFields"></mat-row>
+                </mat-table>
+            </div>
+            <div class="paginator">
+                <mat-paginator [length]="storeService.filterChildrenCount"
+                               [pageSize]="storeService.filterChildrenCount">
+                </mat-paginator>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
 </div>

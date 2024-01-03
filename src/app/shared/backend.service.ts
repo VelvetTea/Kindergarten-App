@@ -23,10 +23,17 @@ export class BackendService {
     this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_sort=${sortBy}&_order=${direction}&_page=${page}&_limit=${CHILDREN_PER_PAGE}`, { observe: 'response' }).subscribe(data => {
         this.storeService.children = data.body!;
         this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
-        //this.storeService.childrenForFilter = this.storeService.children;
         this.storeService.isLoading = false;
     });
   }
+
+  public getChildrenForFilter() {
+    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden`, { observe: 'response' }).subscribe(data => {
+      this.storeService.childrenToFilter = data.body!;
+      //this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
+      this.storeService.isLoading = false;
+    });
+}
 
   public addChildData(child: Child, page:  number) {
     this.http.post('http://localhost:5000/childs', child).subscribe(_ => {

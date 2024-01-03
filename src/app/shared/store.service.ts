@@ -13,4 +13,8 @@ export class StoreService {
   public children: ChildResponse[] = []
   public childrenTotalCount: number = 0;
   public isLoading: boolean = true;
+  public childrenToFilter: ChildResponse[] = [];
+  public filteredChildren: ChildResponse[] = [];
+  public filterChildrenCount: number = 0;
 }
+
