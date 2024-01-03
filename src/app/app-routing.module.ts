@@ -12,10 +12,10 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'about', component: AboutPageComponent },
-  { path: 'about/Waldorfkindergarden im Zentrum Wiens', component: WaldorfkindergartenComponent},
-  { path: 'about/Kindergarden der Karl Schubert Schule für seelenpflegebedürftige Kinder und Jugendliche in Wien', component: KarlSchubertComponent},
-  { path: 'about/Kindergarden der Stadt Wien - 1210', component: StadtWien1210Component},
-  { path: 'about/Kindergarden der Stadt Wien - 1140', component: StadtWien1140Component},
+  { path: 'about/Waldorfkindergarten im Zentrum Wiens', component: WaldorfkindergartenComponent},
+  { path: 'about/Kindergarten der Karl Schubert Schule für seelenpflegebedürftige Kinder und Jugendliche in Wien', component: KarlSchubertComponent},
+  { path: 'about/Kindergarten der Stadt Wien - 1210', component: StadtWien1210Component},
+  { path: 'about/Kindergarten der Stadt Wien - 1140', component: StadtWien1140Component},
   { path: 'about/Montessori Kinderhaus Wien 1', component: MontessoriComponent},
 ];
 
