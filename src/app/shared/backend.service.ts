@@ -27,10 +27,9 @@ export class BackendService {
     });
   }
 
-  public getChildrenForFilter() {
-    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden`, { observe: 'response' }).subscribe(data => {
+  public getChildrenForFilter(sortBy?: string, direction?: string) {
+    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_sort=${sortBy}&_order=${direction}`, { observe: 'response' }).subscribe(data => {
       this.storeService.childrenToFilter = data.body!;
-      //this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
       this.storeService.isLoading = false;
     });
 }

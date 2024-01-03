@@ -11,7 +11,7 @@
     <mat-tab-group color="warn">
         <mat-tab label="Alle">
             <div>
-                <mat-table [dataSource]="storeService.children" matSort (matSortChange)="sortChange($event)">
+                <mat-table [dataSource]="storeService.children" matSort (matSortChange)="sortAll($event)">
 
                     <ng-container *ngFor="let column of columns" [matColumnDef]="column.field">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>
@@ -52,7 +52,7 @@
 
         <mat-tab *ngFor="let kindergarten of storeService.kindergardens" [label]="kindergarten.name" (click)="selectKindergarden(kindergarten)">
             <div>
-                <mat-table [dataSource]="selectKindergarden(kindergarten)" matSort (matSortChange)="sortChange($event)">
+                <mat-table [dataSource]="selectKindergarden(kindergarten)" matSort (matSortChange)="sortFilterd($event)">
 
                     <ng-container *ngFor="let column of columns" [matColumnDef]="column.field">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>

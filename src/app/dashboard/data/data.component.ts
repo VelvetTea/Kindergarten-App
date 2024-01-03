@@ -44,12 +44,13 @@ export class DataComponent implements OnInit {
 
     }
 
-    sortChange($event: Sort) {
-        console.log("before", this.storeService.children)
+    sortAll($event: Sort) {
         this.backendService.getChildren(this.currentPage, $event.active, $event.direction);
-        console.log("after", this.storeService.children)
     }
 
+    sortFilterd($event: Sort){
+        this.backendService.getChildrenForFilter($event.active, $event.direction)
+    }
 
     get columnFields() {
         return this.columns.map(column => column.field);
